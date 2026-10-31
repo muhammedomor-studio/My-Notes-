@@ -70,18 +70,30 @@ fun LockScreen(
                 modifier = Modifier.padding(top = 40.dp)
             ) {
                 Box(
-                    modifier = Modifier
-                        .size(80.dp)
-                        .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.12f)),
-                    contentAlignment = Alignment.Center
+                    modifier = Modifier.size(84.dp),
+                    contentAlignment = Alignment.BottomEnd
                 ) {
-                    Icon(
-                        imageVector = Icons.Default.Lock,
-                        contentDescription = "Lock",
-                        modifier = Modifier.size(40.dp),
-                        tint = MaterialTheme.colorScheme.primary
+                    androidx.compose.foundation.Image(
+                        painter = androidx.compose.ui.res.painterResource(id = com.example.R.drawable.app_logo),
+                        contentDescription = "My Notes Logo",
+                        modifier = Modifier
+                            .size(80.dp)
+                            .clip(RoundedCornerShape(20.dp))
                     )
+                    Box(
+                        modifier = Modifier
+                            .size(28.dp)
+                            .clip(CircleShape)
+                            .background(MaterialTheme.colorScheme.primary),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Lock,
+                            contentDescription = "Lock",
+                            modifier = Modifier.size(16.dp),
+                            tint = Color.White
+                        )
+                    }
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))

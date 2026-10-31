@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.draw.clip
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BrightnessAuto
 import androidx.compose.material.icons.filled.DarkMode
@@ -561,7 +562,19 @@ fun SettingsScreen(
     if (showAboutDialog) {
         AlertDialog(
             onDismissRequest = { showAboutDialog = false },
-            title = { Text("About My Notes") },
+            title = {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    androidx.compose.foundation.Image(
+                        painter = androidx.compose.ui.res.painterResource(id = com.example.R.drawable.app_logo),
+                        contentDescription = "My Notes Logo",
+                        modifier = Modifier
+                            .size(36.dp)
+                            .clip(RoundedCornerShape(8.dp))
+                    )
+                    Spacer(modifier = Modifier.width(10.dp))
+                    Text("About My Notes")
+                }
+            },
             text = {
                 Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     Text("My Notes is an offline-first, native Android application engineered for complete privacy, speed, and reliability.")
